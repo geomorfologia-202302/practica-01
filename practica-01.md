@@ -14,7 +14,7 @@
 
 ## Definamos los criterios de evaluación:
 
-1. **Claridad*:
+1. **Claridad**:
    - ¿La redacción y las preguntas son claras y fáciles de entender?
    - ¿El propósito de la pregunta de investigación está bien definido?
 
