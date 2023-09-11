@@ -2,7 +2,7 @@
 
 1. Abre una hoja del [mapa geomorfológico escala 1:100,000 de RD](https://sgn.gob.do/index.php/geologia-y-tematicos/info-geomorfologia). Asegúrate de que, el que elijas, dispone de memoria geomorfológica, y que, además, cuenta con al menos diez elementos de leyenda.
 
-2. Concéntrate en la leyenda. Elige tres elementos de la leyenda.
+2. Concéntrate en la leyenda. Elige tres elementos de la leyenda. **IMPORTANTE**. Dado que la layenda es estándar para todo el país, algunos elementos que están en la leyenda podrían no estar representados en la hoja que elijas. Asegúrate de que los elementos de leyenda que elijas, estén representados en el mapa que hayas seleccionado.
 
 3. Documéntate sobre ellos brevemente. Usa libros, inteligencia artificial, imágenes, artículos científicos.
 
