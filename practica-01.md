@@ -1,6 +1,6 @@
 # Práctica 1. Mapa geomorfológico de RD
 
-- Fecha de entrega: 13 de septiembre, 23:59 horas.
+> Fecha de entrega: 13 de septiembre, 23:59 horas.
 
 1. Abre una hoja del [mapa geomorfológico escala 1:100,000 de RD](https://sgn.gob.do/index.php/geologia-y-tematicos/info-geomorfologia). Asegúrate de que, el que elijas, dispone de memoria geomorfológica, y que, además, cuenta con al menos diez elementos de leyenda.
 
