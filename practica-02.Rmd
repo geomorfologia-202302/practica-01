@@ -11,7 +11,7 @@ editor_options:
 
 <!-- README.md se genera a partir de README.Rmd. Por favor, edita ese archivo. -->
 
-> Fecha de entrega: 24 de septiembre, 23:59 horas.
+> Fecha de entrega: 1 de octubre, 23:59 horas.
 
 Comenzarás tu manuscrito con la asignación de la próxima semana, y con esta práctica vas a "calentar motores". Tanto el fondo como la forma de dicho ensayo son importantes. En cuanto al fondo, es decir, el tema y su desarrollo, tratará **sobre geomorfometría de un área de República Dominicana**. En cuanto a la forma, deberás lograr una investigación reproducible y bien redactada, presentando un documento que cumpla con estilos de formato, uso apropiado de figuras, tablas, citas y referencias. Esta práctica, en sus dos partes, constituye un apoyo para mejorar tus habilidades de manejar datos y presentarlos con nivel científico, antes de que comiences a redactar formalmente tú manuscrito. Vamos allá.
 
