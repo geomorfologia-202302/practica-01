@@ -6,7 +6,7 @@ Santo Domingo, República Dominicana
 
 <!-- Este archivo se genera a partir de otro del mismo nombre con extensión .Rmd. Por favor, edita ese archivo. -->
 
-> Fecha de entrega: El tali quiere que se haga en el aula.
+> Fecha de entrega: 1 de octubre, 23:59 horas.
 
 ## EJERCICIO 1: Datación absoluta a partir del porcentaje isotópico remanente
 
