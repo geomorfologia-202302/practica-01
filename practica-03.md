@@ -125,9 +125,10 @@ aproximada de la muestra. Interpreta el resultado.
 ## EJERCICIO 2: Datación relativa
 
 Usa [este mapa geológico](data/practica-03/practica-03.jpg), localiza tu
-cuadro de 5x5 km asignado. Identifica las rocas que hay dentro del
-cuadro, tanto su tipología, como su edad (si no logras ver las rocas o
-el mapa es difuso, puedes confirmar con
+cuadro de 5x5 km asignado (debe coincidir con los dos últimos dígitos de
+tu matrícula). Identifica las rocas que hay dentro del cuadro, tanto su
+tipología, como su edad (si no logras ver las rocas o el mapa es difuso,
+puedes confirmar con
 [este](https://drive.google.com/file/d/1NKyZjxzIedFq6Lq0bx-2YrGq5PtMh_r7/view),
 o con [este](data/practica-03/geo250k.jpg) o con [este
 otro](data/practica-03/geo250k.tif)). Refresca la cronología siguiendo
