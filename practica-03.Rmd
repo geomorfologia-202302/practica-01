@@ -41,7 +41,7 @@ knitr::kable(porc_df)
 
 ## EJERCICIO 2: Datación relativa
 
-Usa [este mapa geológico](data/practica-03/practica-03.jpg), localiza tu cuadro de 5x5 km asignado (debe coincidir con los dos últimos dígitos de tu matrícula). Identifica las rocas que hay dentro del cuadro, tanto su tipología, como su edad (si no logras ver las rocas o el mapa es difuso, puedes confirmar con [este](https://drive.google.com/file/d/1NKyZjxzIedFq6Lq0bx-2YrGq5PtMh_r7/view), o con [este](data/practica-03/geo250k.jpg) o con [este otro](data/practica-03/geo250k.tif)). Refresca la cronología siguiendo la tabla cronoestratigráfica internacional, usando [este enlace](tabla-cronoestratigrafica-2021.pdf) o [este otro](https://stratigraphy.org/ICSchart/ChronostratChart2021-05Spanish.pdf). Redacta un párrafo que sintetice la evolución del relieve, con sus dataciones relativas debidamente identificadas.
+Usa [este mapa geológico](data/practica-03/practica-03.jpg), localiza tu cuadro de 5x5 km asignado (debe coincidir con los dos últimos dígitos de tu matrícula). Identifica las rocas que hay dentro del cuadro, tanto su tipología, como su edad (si no logras ver las rocas o el mapa es difuso, puedes confirmar con [este](https://drive.google.com/file/d/1NKyZjxzIedFq6Lq0bx-2YrGq5PtMh_r7/view), o con [este](data/practica-03/geo250k.jpg) o con [este otro](data/practica-03/geo250k.tif)). Refresca la cronología siguiendo la tabla cronoestratigráfica internacional, usando [este enlace](data/practica-03/tabla-cronoestratigrafica-2021.pdf) o [este otro](https://stratigraphy.org/ICSchart/ChronostratChart2021-05Spanish.pdf). Redacta un párrafo que sintetice la evolución del relieve, con sus dataciones relativas debidamente identificadas.
 
 
 ## Criterios de evaluación y escala de valoración

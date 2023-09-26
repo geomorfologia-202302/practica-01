@@ -133,7 +133,7 @@ puedes confirmar con
 o con [este](data/practica-03/geo250k.jpg) o con [este
 otro](data/practica-03/geo250k.tif)). Refresca la cronología siguiendo
 la tabla cronoestratigráfica internacional, usando [este
-enlace](tabla-cronoestratigrafica-2021.pdf) o [este
+enlace](data/practica-03/tabla-cronoestratigrafica-2021.pdf) o [este
 otro](https://stratigraphy.org/ICSchart/ChronostratChart2021-05Spanish.pdf).
 Redacta un párrafo que sintetice la evolución del relieve, con sus
 dataciones relativas debidamente identificadas.
