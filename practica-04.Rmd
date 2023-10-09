@@ -1,0 +1,155 @@
+---
+title: Practica 4. Descarga y preprocesa fuentes de elevación
+author: <b>José-Ramón Martínez-Batlle</b> (jmartinez19@uasd.edu.do) <br> Facultad de Ciencias, Universidad Autónoma de Santo Domingo (UASD) <br> Santo Domingo, República Dominicana
+bibliography: references.bib
+csl: apa-es.csl
+lang: es
+output: github_document
+editor_options: 
+  chunk_output_type: console
+always_allow_html: true
+
+---
+
+<!-- Este archivo se genera a partir de otro del mismo nombre con extensión .Rmd. Por favor, edita ese archivo. -->
+
+> Fecha de entrega: 15 de octubre, 23:59 horas.
+
+
+
+```{r, echo=F, include=F}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  out.width = '80%',
+  dpi = 300,
+  fig.align = "center"
+  )
+options(digits = 3)
+options(knitr.duplicate.label = "allow")
+library(tidyverse)
+library(sf)
+library(stringi)
+library(kableExtra)
+options(knitr.kable.NA = '')
+estilo_kable <- function(df, titulo = '', cubre_anchura = T) {
+  df %>% kable(format = 'html', escape = F, booktabs = T,
+               digits = 2, caption = titulo) %>%
+    kable_styling(bootstrap_options = c("hover", "condensed"),
+                  full_width = cubre_anchura, position = "center")
+}
+```
+
+## EJERCICIO 1: Descarga un modelo digital de elevaciones
+
+> En lo adelante, usaré las siglas DEM, de *digital elevation model*, para referirme al modelo digital de elevaciones.
+
+Basándote en el SRTM-DEM de 1 arcosegundo, construye un DEM para tu área asignada.
+
+
+```{r, echo=F, include=F}
+# Crear objeto poligonos
+poligonos <- list()
+
+# 1. Cuadros centrados en intersecciones horizontales
+lat_inter_h <- c(19)
+lon_inter_h <- seq(-72.5, -69.5, by=1)
+
+for (lat in lat_inter_h) {
+  for (lon in lon_inter_h) {
+    poligonos[[paste0(lat, "_", lon, "_h")]] <- st_polygon(list(matrix(c(lon-0.1, lat-0.1,
+                                                                        lon+0.1, lat-0.1,
+                                                                        lon+0.1, lat+0.1,
+                                                                        lon-0.1, lat+0.1,
+                                                                        lon-0.1, lat-0.1), 
+                                                                  ncol=2, byrow=TRUE)))
+  }
+}
+
+# 2. Cuadros centrados en intersecciones verticales
+lat_inter_v <- seq(18.5, 19.5, by=1)
+lon_inter_v <- c(-70, -72)
+
+for (lat in lat_inter_v) {
+  for (lon in lon_inter_v) {
+    poligonos[[paste0(lat, "_", lon, "_v")]] <- st_polygon(list(matrix(c(lon-0.1, lat-0.1,
+                                                                        lon+0.1, lat-0.1,
+                                                                        lon+0.1, lat+0.1,
+                                                                        lon-0.1, lat+0.1,
+                                                                        lon-0.1, lat-0.1), 
+                                                                  ncol=2, byrow=TRUE)))
+  }
+}
+
+# Convertir la lista a un objeto sf
+poligonos_sf <- st_as_sf(st_as_sfc(poligonos, crs=4326))
+
+# Visualizar
+# plot(poligonos_sf)
+
+# Columna geometría
+rename_geometry <- function(g, name){
+    current = attr(g, "sf_column")
+    names(g)[names(g)==current] = name
+    st_geometry(g)=name
+    g
+}
+poligonos_sf <- rename_geometry(poligonos_sf, 'geometry')
+
+# ID de Poligono
+poligonos_sf$id <- paste0('poligono_', 1:nrow(poligonos_sf))
+
+# Exportar polígonos
+sapply(
+  poligonos_sf$id,
+  function(x)
+    st_write(
+      poligonos_sf[poligonos_sf$id==x, ],
+      paste0('data/practica-04/', x, '.kml')
+    )
+)
+
+# Asignar
+estudiantes <- read_csv('../../courseid_494_participants.csv')[,1:2]
+estudiantes$id <- paste(estudiantes$Nombre, estudiantes$`Apellido(s)`)
+set.seed(99)
+aoi_asign <- data.frame(
+  Nombre = estudiantes$id,
+  Poligono = sample(poligonos_sf$id, length(estudiantes$id)))
+```
+
+
+```{r, echo=F}
+aoi_asign %>% arrange(Nombre) %>% estilo_kable()
+```
+
+
+Sigue estos pasos:
+
+1. Desde el [EarthExplorer](https://earthexplorer.usgs.gov/), descarga los dos cuadros del SRTM-DEM de 1 arcosegundo que abarquen, como mínimo, tu polígono asignado. Los cuadros abarcarán un área mucho mayor inicialmente, pero luego lo recortarás. Para descargar, no uses el complemento SRTM Downloader, pues necesitarás los cuadros independientes para cumplir el mandato. Muestra, en una captura de pantalla dentro de tu entregable, tus dos DEM independientes de forma independiente, simbolizados como prefieras.
+
+2. Construye un mosaico mediante ráster virtual (`.vrt`). 
+
+3. Muestra, en una captura de pantalla dentro de tu entregable, tu mosaico de DEM, simbolizado como prefieras.
+
+## Ejercicio 2. Representa tu DEM
+
+Representa tu DEM de forma que tengas la imagen de sombras y la hipsometría coloreada mezcladas en una visualización, colocando algún tipo de rótulo que te ayude a reconocer el área en cuestión.
+
+Captura la pantalla e insértala en tu entregable.
+
+## Ejercicio 3. Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools
+
+La herramienta *FeaturePreservingSmoothing* de Whitebox Tools, reduce la rugosidad generada por el ruido en el DEM [@lindsay2019; @lindsay2018whiteboxtools].
+
+Para aplicar esta herramienta, instala primero el complemento Whitebox Tools de QGIS, descarga el ejecutable de Whitebox Tools (*Open Core*) y especifícale a QGIS dónde se encuentra dicho ejecutable. Si lo logras configurar bien, podrás ejecutar la herramienta *FeaturePreservingSmoothing*.
+
+Tanto para instalar como para aplicar la herramienta, sigue las instrucciones que facilitaré en el aula, sugerencias de tu tutor de IA, o tutoriales en línea.
+
+
+## Criterios de evaluación y escala de valoración
+
+
+
+## Referencias
