@@ -13,8 +13,10 @@ always_allow_html: true
 
 <!-- Este archivo se genera a partir de otro del mismo nombre con extensión .Rmd. Por favor, edita ese archivo. -->
 
-> Fecha de entrega: 15 de octubre, 23:59 horas.
 
+> Fecha límite de entrega: 15 de octubre, 23:59 horas.
+
+> Entregable: documento. Entrega tu archivo vía correo electrónico en formato nativo. En el caso de usar software de interfaz gráfica, como Microsoft Word o LibreOffice Writer, entrega tanto el archivo nativo .docx o .odt como el PDF. En el caso de usar procesadores de texto como LaTeX, Overleaf, RMmarkdown, entrega tanto el PDF como la carpeta (comprimida en ZIP) conteniendo los archivos necesarios para compilar el PDF.
 
 
 ```{r, echo=F, include=F}
@@ -52,12 +54,12 @@ Basándote en el SRTM-DEM de 1 arcosegundo, construye un DEM para tu área asign
 # Crear objeto poligonos
 poligonos <- list()
 
-# 1. Cuadros centrados en intersecciones horizontales
-lat_inter_h <- c(19)
-lon_inter_h <- seq(-72.5, -69.5, by=1)
+# 1. Cuadros centrados en intersecciones horizontales (1)
+lat_inter_h_1 <- c(19)
+lon_inter_h_1 <- seq(-72.3, -69.3, by=1)
 
-for (lat in lat_inter_h) {
-  for (lon in lon_inter_h) {
+for (lat in lat_inter_h_1) {
+  for (lon in lon_inter_h_1) {
     poligonos[[paste0(lat, "_", lon, "_h")]] <- st_polygon(list(matrix(c(lon-0.1, lat-0.1,
                                                                         lon+0.1, lat-0.1,
                                                                         lon+0.1, lat+0.1,
@@ -67,7 +69,23 @@ for (lat in lat_inter_h) {
   }
 }
 
-# 2. Cuadros centrados en intersecciones verticales
+# 2. Cuadros centrados en intersecciones horizontales (2)
+lat_inter_h_2 <- c(19)
+lon_inter_h_2 <- seq(-72.7, -69.7, by=1)
+
+for (lat in lat_inter_h_2) {
+  for (lon in lon_inter_h_2) {
+    poligonos[[paste0(lat, "_", lon, "_h")]] <- st_polygon(list(matrix(c(lon-0.1, lat-0.1,
+                                                                        lon+0.1, lat-0.1,
+                                                                        lon+0.1, lat+0.1,
+                                                                        lon-0.1, lat+0.1,
+                                                                        lon-0.1, lat-0.1), 
+                                                                  ncol=2, byrow=TRUE)))
+  }
+}
+
+
+# 3. Cuadros centrados en intersecciones verticales
 lat_inter_v <- seq(18.5, 19.5, by=1)
 lon_inter_v <- c(-70, -72)
 
@@ -98,7 +116,7 @@ rename_geometry <- function(g, name){
 poligonos_sf <- rename_geometry(poligonos_sf, 'geometry')
 
 # ID de Poligono
-poligonos_sf$id <- paste0('poligono_', 1:nrow(poligonos_sf))
+poligonos_sf$id <- paste0('data/practica-04/poligono_', 1:nrow(poligonos_sf), '.kml')
 
 # Exportar polígonos
 sapply(
@@ -106,7 +124,8 @@ sapply(
   function(x)
     st_write(
       poligonos_sf[poligonos_sf$id==x, ],
-      paste0('data/practica-04/', x, '.kml')
+      x,
+      delete_dsn = T
     )
 )
 
@@ -124,7 +143,6 @@ aoi_asign <- data.frame(
 aoi_asign %>% arrange(Nombre) %>% estilo_kable()
 ```
 
-
 Sigue estos pasos:
 
 1. Desde el [EarthExplorer](https://earthexplorer.usgs.gov/), descarga los dos cuadros del SRTM-DEM de 1 arcosegundo que abarquen, como mínimo, tu polígono asignado. Los cuadros abarcarán un área mucho mayor inicialmente, pero luego lo recortarás. Para descargar, no uses el complemento SRTM Downloader, pues necesitarás los cuadros independientes para cumplir el mandato. Muestra, en una captura de pantalla dentro de tu entregable, tus dos DEM independientes de forma independiente, simbolizados como prefieras.
@@ -141,7 +159,7 @@ Captura la pantalla e insértala en tu entregable.
 
 ## Ejercicio 3. Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools
 
-La herramienta *FeaturePreservingSmoothing* de Whitebox Tools, reduce la rugosidad generada por el ruido en el DEM [@lindsay2019; @lindsay2018whiteboxtools].
+La herramienta *FeaturePreservingSmoothing* de Whitebox Tools, reduce la rugosidad generada por el ruido en el DEM.
 
 Para aplicar esta herramienta, instala primero el complemento Whitebox Tools de QGIS, descarga el ejecutable de Whitebox Tools (*Open Core*) y especifícale a QGIS dónde se encuentra dicho ejecutable. Si lo logras configurar bien, podrás ejecutar la herramienta *FeaturePreservingSmoothing*.
 
