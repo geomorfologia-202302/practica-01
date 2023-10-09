@@ -104,6 +104,14 @@ data/practica-04/poligono_5.kml
 </tr>
 <tr>
 <td style="text-align:left;">
+Mayki Morel
+</td>
+<td style="text-align:left;">
+data/practica-04/poligono_9.kml
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 Reynaldo Rafael Espaillat Santos
 </td>
 <td style="text-align:left;">
