@@ -161,7 +161,9 @@ Sigue estos pasos:
 
 ## Ejercicio 3. Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools
 
-- Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools a tu DEM recortado. La herramienta *FeaturePreservingSmoothing* de Whitebox Tools, es un filtro de análisis geomorfométrico que reduce la rugosidad generada por el ruido en el DEM. Para aplicar esta herramienta, instala primero el complemento Whitebox Tools de QGIS, descarga el ejecutable de Whitebox Tools (*Open Core*) y especifícale a QGIS dónde se encuentra dicho ejecutable. Si lo logras configurar bien, podrás ejecutar la herramienta *FeaturePreservingSmoothing* desde la caja de herramientas de procesos de QGIS (menú `Procesos>Caja de herramienta`). Tanto para instalar como para aplicar la herramienta, sigue las instrucciones que facilitaré en el aula, sugerencias de tu tutor de IA, o tutoriales en línea.
+- Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools a tu DEM recortado. Antes de aplicarla, exporta tu DEM recortado a formato TIF, pues Whitebox Tools no recibe como entrada el formato ráster virtual. Para exportar en QGIS, haz clic derecho sobre el nombre de la capa del ráster virtual y, en el menú contextual, presiona `Exportar>Guardar como...`, en formato elige `GeoTIFF`, escribe un nombre de archivo/ruta y presiona `Aceptar`.
+
+> La herramienta *FeaturePreservingSmoothing* de Whitebox Tools, es un filtro de análisis geomorfométrico que reduce la rugosidad generada por el ruido en el DEM. Para aplicar esta herramienta, instala primero el complemento Whitebox Tools de QGIS, descarga el ejecutable de Whitebox Tools (*Open Core*) y especifícale a QGIS dónde se encuentra dicho ejecutable. Si lo logras configurar bien, podrás ejecutar la herramienta *FeaturePreservingSmoothing* desde la caja de herramientas de procesos de QGIS (menú `Procesos>Caja de herramienta`). Tanto para instalar como para aplicar la herramienta, sigue las instrucciones que facilitaré en el aula, sugerencias de tu tutor de IA, o tutoriales en línea.
 
 - Compara el DEM filtrado y el original y, en una oración, destaca las diferencias encontrada.
 
