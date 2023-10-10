@@ -1,4 +1,4 @@
-Practica 4. Descarga y preprocesa fuentes de elevación
+Práctica 4. Descarga y preprocesa fuentes de elevación
 ================
 <b>José-Ramón Martínez-Batlle</b> (<jmartinez19@uasd.edu.do>) <br>
 Facultad de Ciencias, Universidad Autónoma de Santo Domingo (UASD) <br>
@@ -21,8 +21,8 @@ Santo Domingo, República Dominicana
 > En lo adelante, usaré las siglas DEM, de *digital elevation model*,
 > para referirme al modelo digital de elevaciones.
 
-Basándote en el SRTM-DEM de 1 arcosegundo, construye un DEM para tu área
-asignada.
+Basándote en el SRTM-DEM de 1 arcosegundo, construye un DEM para tu
+polígono asignado.
 
 <table class="table table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -104,14 +104,6 @@ data/practica-04/poligono_5.kml
 </tr>
 <tr>
 <td style="text-align:left;">
-Mayki Morel
-</td>
-<td style="text-align:left;">
-data/practica-04/poligono_9.kml
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 Reynaldo Rafael Espaillat Santos
 </td>
 <td style="text-align:left;">
@@ -129,37 +121,60 @@ Sigue estos pasos:
     mayor inicialmente, pero luego lo recortarás. Para descargar, no
     uses el complemento SRTM Downloader, pues necesitarás los cuadros
     independientes para cumplir el mandato. Muestra, en una captura de
-    pantalla dentro de tu entregable, tus dos DEM independientes de
-    forma independiente, simbolizados como prefieras.
+    pantalla dentro de tu entregable, tus dos DEM de forma
+    independiente, simbolizados como prefieras.
 
 2.  Construye un mosaico mediante ráster virtual (`.vrt`).
 
 3.  Muestra, en una captura de pantalla dentro de tu entregable, tu
     mosaico de DEM, simbolizado como prefieras.
 
-## Ejercicio 2. Representa tu DEM
+## Ejercicio 2. Recorta y representa tu DEM
 
-Representa tu DEM de forma que tengas la imagen de sombras y la
-hipsometría coloreada mezcladas en una visualización, colocando algún
-tipo de rótulo que te ayude a reconocer el área en cuestión.
+- Recorta tu DEM para que coincida con el área de tu polígono asignado,
+  por medio de menú
+  `Ráster>Extracción>Cortar ráster por capa de máscara`, donde la capa
+  de máscara es tu polígono asignado.
 
-Captura la pantalla e insértala en tu entregable.
+- Representa tu DEM recortado de forma que tengas la imagen de sombras
+  (“renderizador” mapa de sombras o *hillshade* en QGIS) y la
+  hipsometría coloreada (“renderizador” pseudocolor de monobanda en
+  QGIS) mezcladas en una visualización, colocando algún tipo de rótulo
+  que te ayude a reconocer el área en cuestión.
+
+- Captura la pantalla e insértala en tu entregable.
 
 ## Ejercicio 3. Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools
 
-La herramienta *FeaturePreservingSmoothing* de Whitebox Tools, reduce la
-rugosidad generada por el ruido en el DEM.
+- Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools a
+  tu DEM recortado. La herramienta *FeaturePreservingSmoothing* de
+  Whitebox Tools, es un filtro de análisis geomorfométrico que reduce la
+  rugosidad generada por el ruido en el DEM. Para aplicar esta
+  herramienta, instala primero el complemento Whitebox Tools de QGIS,
+  descarga el ejecutable de Whitebox Tools (*Open Core*) y especifícale
+  a QGIS dónde se encuentra dicho ejecutable. Si lo logras configurar
+  bien, podrás ejecutar la herramienta *FeaturePreservingSmoothing*
+  desde la caja de herramientas de procesos de QGIS (menú
+  `Procesos>Caja de herramienta`). Tanto para instalar como para aplicar
+  la herramienta, sigue las instrucciones que facilitaré en el aula,
+  sugerencias de tu tutor de IA, o tutoriales en línea.
 
-Para aplicar esta herramienta, instala primero el complemento Whitebox
-Tools de QGIS, descarga el ejecutable de Whitebox Tools (*Open Core*) y
-especifícale a QGIS dónde se encuentra dicho ejecutable. Si lo logras
-configurar bien, podrás ejecutar la herramienta
-*FeaturePreservingSmoothing*.
+- Compara el DEM filtrado y el original y, en una oración, destaca las
+  diferencias encontrada.
 
-Tanto para instalar como para aplicar la herramienta, sigue las
-instrucciones que facilitaré en el aula, sugerencias de tu tutor de IA,
-o tutoriales en línea.
+- Captura dos pantallas, una mostrando el DEM original y otra mostrando
+  el DEM filtrado. Insértalas ambas en tu entregable.
 
 ## Criterios de evaluación y escala de valoración
+
+| Criterio / Escala de valoración                  | Nivel 1 (En desarrollo)                                                  | Nivel 2 (Aceptable)                                                          | Nivel 3 (Bueno)                                                                         | Nivel 4 (Excelente)                                                          |
+|--------------------------------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| **Ejercicio 1: Descarga de DEM**                 | Incompleto o incorrecto                                                  | Ha descargado solo un DEM                                                    | Ha descargado ambos DEM pero falta clara visualización                                  | Ha descargado correctamente ambos DEM y se visualizan claramente             |
+| **Ejercicio 1: Mosaico de DEM**                  | No ha construido el mosaico                                              | Ha construido el mosaico pero presenta errores                               | El mosaico está bien construido pero falta claridad en la visualización                 | Mosaico de DEM bien construido y visualizado claramente                      |
+| **Ejercicio 2: Recorte del DEM**                 | No ha recortado el DEM                                                   | Ha recortado el DEM pero no coincide exactamente con el polígono asignado    | El DEM recortado coincide con el polígono pero falta claridad en la visualización       | DEM recortado y visualizado con precisión                                    |
+| **Ejercicio 2: Representación**                  | No hay visualización de sombras ni hipsometría                           | Sólo una de las visualizaciones (sombra o hipsometría) está presente         | Ambas visualizaciones están presentes pero sin mezcla o claridad adecuada               | Perfecta mezcla de imagen de sombras y hipsometría con rótulo claro          |
+| **Ejercicio 3: Uso de FeaturePreserveSmoothing** | No ha aplicado la herramienta                                            | Ha intentado aplicar la herramienta pero hay errores evidentes               | Ha aplicado la herramienta pero no ha logrado la correcta configuración o visualización | Aplicación perfecta de la herramienta con claridad en los resultados         |
+| **Ejercicio 3: Comparación de DEMs**             | No hay comparación o está incorrecta                                     | La comparación está presente pero es vaga                                    | La comparación es clara pero carece de detalles específicos                             | Comparación detallada y clara entre el DEM original y filtrado               |
+| **Presentación y formato**                       | El entregable está desordenado y falta alguno de los formatos requeridos | El entregable presenta todos los formatos pero está desordenado o poco claro | El entregable es ordenado pero puede mejorar en detalles                                | El entregable es claro, ordenado y cumple con todos los formatos solicitados |
 
 ## Referencias

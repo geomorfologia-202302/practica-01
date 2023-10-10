@@ -6,10 +6,8 @@
 </Schema>
 <Folder><name>poligono_11</name>
   <Placemark>
+	<name>data/practica-04/poligono_11.kml</name>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#poligono_11">
-		<SimpleData name="id">data/practica-04/poligono_11.kml</SimpleData>
-	</SchemaData></ExtendedData>
       <Polygon><outerBoundaryIs><LinearRing><coordinates>-70.1,19.4 -69.9,19.4 -69.9,19.6 -70.1,19.6 -70.1,19.4</coordinates></LinearRing></outerBoundaryIs></Polygon>
   </Placemark>
 </Folder>
