@@ -155,20 +155,21 @@ Sigue estos pasos:
 
 - Recorta tu DEM para que coincida con el área de tu polígono asignado, por medio de menú `Ráster>Extracción>Cortar ráster por capa de máscara`, donde la capa de máscara es tu polígono asignado.
 
-- Representa tu DEM recortado de forma que tengas la imagen de sombras ("renderizador" mapa de sombras o *hillshade* en QGIS) y la hipsometría coloreada ("renderizador" pseudocolor de monobanda en QGIS) mezcladas en una visualización, colocando algún tipo de rótulo que te ayude a reconocer el área en cuestión.
+- En QGIS, representa tu DEM recortado de forma que tengas la imagen de sombras (en el `Tipo de renderizador`, elige la opción `Mapa de Sombras (*hillshade*)`), y la hipsometría coloreada (`Tipo de renderizador`, elige la opción `Pseudocolor de monobanda`) mezcladas en una visualización, colocando algún tipo de rótulo que te ayude a reconocer el área en cuestión.
 
 - Captura la pantalla e insértala en tu entregable.
 
 ## Ejercicio 3. Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools
 
-- Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools a tu DEM recortado. Antes de aplicarla, exporta tu DEM recortado a formato TIF, pues Whitebox Tools no recibe como entrada el formato ráster virtual. Para exportar en QGIS, haz clic derecho sobre el nombre de la capa del ráster virtual y, en el menú contextual, presiona `Exportar>Guardar como...`, en formato elige `GeoTIFF`, escribe un nombre de archivo/ruta y presiona `Aceptar`.
+> La herramienta *FeaturePreservingSmoothing* de Whitebox Tools, es un filtro de análisis geomorfométrico que reduce la rugosidad ("suaviza" las asperezas) generada por el ruido en el DEM. Para aplicar esta herramienta, instala primero el complemento Whitebox Tools de QGIS, descarga el ejecutable de Whitebox Tools (*Open Core*) y especifícale a QGIS dónde se encuentra dicho ejecutable. Tanto para instalar como para aplicar la herramienta, sigue las instrucciones que facilitaré en el aula, sugerencias de tu tutor de IA, o tutoriales en línea.
 
-> La herramienta *FeaturePreservingSmoothing* de Whitebox Tools, es un filtro de análisis geomorfométrico que reduce la rugosidad generada por el ruido en el DEM. Para aplicar esta herramienta, instala primero el complemento Whitebox Tools de QGIS, descarga el ejecutable de Whitebox Tools (*Open Core*) y especifícale a QGIS dónde se encuentra dicho ejecutable. Si lo logras configurar bien, podrás ejecutar la herramienta *FeaturePreservingSmoothing* desde la caja de herramientas de procesos de QGIS (menú `Procesos>Caja de herramienta`). Tanto para instalar como para aplicar la herramienta, sigue las instrucciones que facilitaré en el aula, sugerencias de tu tutor de IA, o tutoriales en línea.
+- Primero, necesitarás exportar tu DEM recortado a formato GeoTIFF, pues Whitebox Tools no recibe como entrada el formato ráster virtual. Para exportar en QGIS, haz clic derecho sobre el nombre de la capa del ráster virtual y, en el menú contextual, presiona `Exportar>Guardar como...`, en formato elige `GeoTIFF`, escribe un nombre de archivo/ruta y presiona `Aceptar`.
 
-- Compara el DEM filtrado y el original y, en una oración, destaca las diferencias encontrada.
+- Aplica la herramienta *FeaturePreserveSmoothing*, de Whitebox Tools a tu DEM recortado en formato GeoTIFF, para generar un DEM filtrado/suavizado. Ejecuta la herramienta desde la caja de herramientas de procesos de QGIS (menú `Procesos>Caja de herramienta`). Elije como DEM de entrada el recortado en formato GeoTIFF que generaste en el paso anterior. Deja todos los valores por defecto, sólo edita estos dos: en `Maximum Elevation Change [optional]` escribe `8` y en `Z Conversion Factor [optional]` coloca `0.000009`.
 
-- Captura dos pantallas, una mostrando el DEM original y otra mostrando el DEM filtrado. Insértalas ambas en tu entregable.
+- Visualiza el DEM filtrado/suavizado y el que usaste como entrada (tu DEM recortado en formato GeoTIFF), usando como "renderizador" la opción "Mapa de Sombras (*hillshade*)".  En una oración, destaca las diferencias encontradas.
 
+- Captura dos pantallas, una mostrando el DEM en formato GeoTIFF sin filtrado/suavizado, y otra mostrando el DEM filtrado/suavizado. Insértalas ambas en tu entregable.
 
 ## Criterios de evaluación y escala de valoración
 
