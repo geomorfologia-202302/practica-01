@@ -16,13 +16,13 @@ Santo Domingo, República Dominicana
 > (comprimida en ZIP) conteniendo los archivos necesarios para compilar
 > el PDF.
 
-## EJERCICIO 1: Descarga un modelo digital de elevaciones
+## EJERCICIO 1: Descarga un modelo digital de elevaciones y represéntalo
 
 > En lo adelante, usaré las siglas DEM, de *digital elevation model*,
 > para referirme al modelo digital de elevaciones.
 
 Basándote en el SRTM-DEM de 1 arcosegundo, construye un DEM para tu
-polígono asignado.
+polígono asignado usando QGIS
 
 <table class="table table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -119,25 +119,28 @@ Sigue estos pasos:
     los dos cuadros del SRTM-DEM de 1 arcosegundo que abarquen, como
     mínimo, tu polígono asignado. Los cuadros abarcarán un área mucho
     mayor inicialmente, pero luego lo recortarás. Para descargar, no
-    uses el complemento SRTM Downloader, pues necesitarás los cuadros
-    independientes para cumplir el mandato. Muestra, en una captura de
-    pantalla dentro de tu entregable, tus dos DEM de forma
-    independiente, simbolizados como prefieras.
+    uses el complemento SRTM Downloader de QGIS, pues necesitarás los
+    cuadros independientes para cumplir el mandato.
 
-2.  Construye un mosaico mediante ráster virtual (`.vrt`).
+2.  Despliega los cuadros descargados en QGIS.
 
-3.  Muestra, en una captura de pantalla dentro de tu entregable, tu
+3.  Muestra, en una captura de pantalla dentro de tu entregable, tus dos
+    DEM de forma independiente, simbolizados como prefieras.
+
+4.  En QGIS, construye un mosaico mediante ráster virtual (`.vrt`).
+
+5.  Muestra, en una captura de pantalla dentro de tu entregable, tu
     mosaico de DEM, simbolizado como prefieras.
 
 ## Ejercicio 2. Recorta y representa tu DEM
 
-- Recorta tu DEM para que coincida con el área de tu polígono asignado,
-  por medio de menú
+- En QGIS, recorta tu DEM para que coincida con el área de tu polígono
+  asignado, por medio de menú
   `Ráster>Extracción>Cortar ráster por capa de máscara`, donde la capa
   de máscara es tu polígono asignado.
 
-- En QGIS, representa tu DEM recortado de forma que tengas la imagen de
-  sombras (en el `Tipo de renderizador`, elige la opción
+- Representa tu DEM recortado de forma que tengas la imagen de sombras
+  (en el `Tipo de renderizador`, elige la opción
   `Mapa de Sombras (*hillshade*)`), y la hipsometría coloreada
   (`Tipo de renderizador`, elige la opción `Pseudocolor de monobanda`)
   mezcladas en una visualización, colocando algún tipo de rótulo que te
